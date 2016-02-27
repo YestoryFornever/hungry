@@ -6,6 +6,20 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		pkg:grunt.file.readJSON("package.json"),
 
+		jshint:{
+			build:['Gruntfile.js','build/*.js'],
+			options: {
+				jshintrc: '.jshintrc'
+			}
+		},
+
+		csslint:{
+			build:['build/*.css'],
+			options: {
+				csslint: '.csslint'
+			}
+		},
+
 		uglify:{
 			options:{
 				stripBanners:true,
@@ -17,8 +31,10 @@ module.exports = function(grunt){
 			}
 		}
 	});
-
+	
+	grunt.loadNpmTasks("grunt-contrib-jshint");
+	grunt.loadNpmTasks("grunt-contrib-csslint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 
-	grunt.registerTask("default",["uglify"]);
+	grunt.registerTask("default",["jshint","csslint","uglify"]);
 };
