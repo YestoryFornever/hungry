@@ -29,12 +29,21 @@ module.exports = function(grunt){
 				src:'build/test.js',
 				dest:'release/<%=pkg.name%>-<%=pkg.version%>.js.min.js'
 			}
+		},
+
+		watch:{
+			build:{
+				files:["Gruntfile.js","build/*"],
+				tasks:['jshint','csslint','uglify'],
+				options: {spawn: false}
+			}
 		}
 	});
 	
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-csslint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
+	grunt.loadNpmTasks("grunt-contrib-watch");
 
-	grunt.registerTask("default",["jshint","csslint","uglify"]);
+	grunt.registerTask("default",["jshint","csslint","uglify","watch"]);
 };
