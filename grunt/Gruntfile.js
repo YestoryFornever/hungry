@@ -1,7 +1,7 @@
 module.exports = function(grunt){
 
-	//require("time-grunt")(grunt);//列出每个task的运行时间
-	//require("load-grunt-tasks")(grunt);//相当于用grunt.registerTask引入所有grunt插件
+	require("time-grunt")(grunt);//列出每个task的运行时间
+	require("load-grunt-tasks")(grunt);//相当于用grunt.registerTask引入所有grunt插件
 
 	grunt.initConfig({
 		pkg:grunt.file.readJSON("package.json"),
@@ -40,10 +40,10 @@ module.exports = function(grunt){
 		}
 	});
 	
-	grunt.loadNpmTasks("grunt-contrib-jshint");
+	/*grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-csslint");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
-	grunt.loadNpmTasks("grunt-contrib-watch");
+	grunt.loadNpmTasks("grunt-contrib-watch");*/
 
 	grunt.registerTask("default",["jshint","csslint","uglify","watch"]);
 };
