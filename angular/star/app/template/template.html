@@ -1,5 +1,6 @@
 <div ng-controller="templateCtrl">
-	<input type="text" ng-model="xxx">
-	<br>
-	{{xxx}}
+	<input type="text" ng-model="xxx"><br>
+	过滤器:{{xxx|add1}}<br>
+	服务:{{fn2()}}<br>
+	服务过滤器:{{xxx|add2}}<br>
 </div>
